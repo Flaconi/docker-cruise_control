@@ -122,10 +122,11 @@ COPY run.sh /run.sh
 ###
 RUN set -eux \
 	&&	sed -i'' \
-		's|^webserver.ui.diskpath=|webserver.ui.diskpath=/cc/cruise-control-ui/|g' \
+		's|^webserver.ui.diskpath=.*|webserver.ui.diskpath=/cc/cruise-control-ui/|g' \
 		/cc/config/cruisecontrol.properties
 
 ###
 ### Startup
 ###
+WORKDIR /cc
 CMD ["/run.sh"]

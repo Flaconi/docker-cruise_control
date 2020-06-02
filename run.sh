@@ -68,7 +68,7 @@ fi
 if [ "${UI_ENV:-}" == "" ]; then
 	UI_ENV="default"
 fi
-echo "${UI_ENV},${UI_ENV},/kafkacruisecontrol/" > /cc/cruise-control-ui/config.csv
+echo "${UI_ENV},${UI_ENV},/kafkacruisecontrol/" > /cc/cruise-control-ui/static/config.csv
 
 
 ###

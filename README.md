@@ -62,7 +62,7 @@ make rebuild VERSION=2.0.105
 |------|------|
 | `/cc/config/capacity.json` | Holds capacity info and can be mounted or created with env vars. |
 | `/cc/config/cruisecontrol.properties` | Full configuration. Currently only bootstrap servers can be adjusted with env vars. If you need more granular configuration, mount this file yourself. |
-| `/cc/cruise-control-ui/config.csv` | Environment display version for the web ui. Can only be adjusted via env vars. |
+| `/cc/cruise-control-ui/static/config.csv` | Environment display version for the web ui. Can only be adjusted via env vars. |
 
 
 ## Environment variables
@@ -108,7 +108,7 @@ ZOOKEEPER_CONNECT=zk1.example.com:2181,zk1.example.com:2181
 ### UI_ENV
 
 Used for the web interface. Defaults to `default` if not set.
-Will create `/cc/cruise-control-ui/config.csv`
+Will create `/cc/cruise-control-ui/static/config.csv`
 ```bash
 # Changes env name to dev
 UI_ENV=dev
