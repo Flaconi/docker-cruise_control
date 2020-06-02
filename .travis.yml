@@ -48,6 +48,7 @@ install:
 ###
 before_script:
   - retry make lint
+  - retry make artifact TAG=${VERSION}
   - retry make build TAG=${VERSION}
   - retry make test  TAG=${VERSION}
 

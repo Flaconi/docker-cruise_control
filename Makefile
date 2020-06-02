@@ -2,7 +2,7 @@ ifneq (,)
 .error This Makefile requires GNU Make.
 endif
 
-.PHONY: build rebuild lint test _test-version tag pull login push enter
+.PHONY: build rebuild artifact lint test _test-version tag pull login push enter
 
 CURRENT_DIR = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
@@ -29,6 +29,17 @@ rebuild:
 		--build-arg VERSION=$(TAG) \
 		-t $(IMAGE) \
 		-f $(DIR)/$(FILE) $(DIR)
+
+artifact:
+	docker build \
+		--target builder \
+		--build-arg VERSION=$(TAG) \
+		-t $(IMAGE) \
+		-f $(DIR)/$(FILE) $(DIR)
+	docker run -d --name flaconi_temp --rm --entrypoint=sleep $(IMAGE) 1000
+	docker cp flaconi_temp:/cruise-control-metrics-reporter.jar dist/cruise-control-metrics-reporter.jar
+	docker kill flaconi_temp || true
+
 
 lint:
 	@docker run --rm -v $(CURRENT_DIR):/data cytopia/file-lint file-cr --text --ignore '.git/,.github/,tests/' --path .

@@ -94,10 +94,10 @@ RUN set -eux \
 ### This will be extracted to the git repository (outside the docker container)
 ### to be used with Kafka. See Makefile for how the actual build is done.
 ###
-#RUN set -eux \
-#	&& VERSION="$( cat /VERSION )" \
-#	&& ls -lap /tmp/cruise-control/cruise-control-metrics-reporter/build/libs/ \
-#	&& cp /tmp/cruise-control/cruise-control-metrics-reporter/build/libs/cruise-control-metrics-reporter-${VERSION}.jar /
+RUN set -eux \
+	&& VERSION="$( cat /VERSION )" \
+	&& ls -lap /tmp/cruise-control/cruise-control-metrics-reporter/build/libs/ \
+	&& cp /tmp/cruise-control/cruise-control-metrics-reporter/build/libs/cruise-control-metrics-reporter-*.jar /cruise-control-metrics-reporter.jar
 
 
 # -------------------------------------------------------------------------------------------------

@@ -5,20 +5,39 @@
 
 > Docker image for [Cruise Control](https://github.com/linkedin/cruise-control)
 
+[![Docker hub](http://dockeri.co/image/flaconi/cruise_control?&kill_cache=1)](https://hub.docker.com/r/flaconi/cruise_control)
+
+
+## Available images tags
+
+### Rolling releases
+
+| Docker tag        | Cruise Control version   |
+|-------------------|--------------------------|
+| `latest-latest`   | Latest available release |
+| `2.4.2-latest`    | Cruise control v2.4.2    |
+| `2.0.105-latest`  | Cruise control v2.0.105  |
+
+### Git tagged releases
+
+| Git tag  | Docker tag        | Cruise Control version   |
+|----------|-------------------|--------------------------|
+| `<gtag>` | `latest-<gtag>`   | Latest available release |
+| `<gtag>` | `2.4.2-<gtag>`    | Cruise control v2.4.2    |
+| `<gtag>` | `2.0.105-<gtag>`  | Cruise control v2.0.105  |
 
 ```bash
 docker pull flaconi/cruise_control
 ```
 
 
-## Available images tags
+## Build `metrics-reporter.jar`
 
-| Docker tag | Cruise Control version   |
-|------------|--------------------------|
-| `latest`   | Latest available release |
-| `2.4.2`    | Cruise control v2.4.2    |
-| `2.0.105`  | Cruise control v2.0.105  |
-
+This file is used for Kafka broker.
+```bash
+# Will build and copy file to dist/ in current git repo
+make artifact
+```
 
 
 ## Build and test
