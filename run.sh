@@ -53,8 +53,12 @@ fi
 ### update /cc/config/cruisecontrol.properties
 ###
 if [ "${BOOTSTRAP_SERVERS:-}" != "" ]; then
-	sed -i'' "s/^bootstrap.servers=.*/bootstrap.servers==${BOOTSTRAP_SERVERS}/g" /cc/config/cruisecontrol.properties
+	sed -i'' "s/^bootstrap.servers=.*/bootstrap.servers=${BOOTSTRAP_SERVERS}/g" /cc/config/cruisecontrol.properties
 	grep -E '^bootstrap\.servers=' /cc/config/cruisecontrol.properties
+fi
+if [ "${ZOOKEEPER_CONNECT:-}" != "" ]; then
+	sed -i'' "s/^zookeeper.connect=.*/zookeeper.connect=${ZOOKEEPER_CONNECT}/g" /cc/config/cruisecontrol.properties
+	grep -E '^zookeeper\.connect=' /cc/config/cruisecontrol.properties
 fi
 
 

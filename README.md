@@ -94,6 +94,17 @@ If set, will adjust `bootstrap.servers` value in `/cc/config/cruisecontrol.prope
 BOOTSTRAP_SERVERS=broker1.example.com:9092,broker1.example.com:9092
 ```
 
+### ZOOKEEPER_CONNECT
+If set, will adjust `zookeeper.connect` value in `/cc/config/cruisecontrol.properties`
+
+* Format: `<zk1>:<port1>[,<zk2>:<port2>]`
+
+```bash
+# Adds two zookeper servers
+ZOOKEEPER_CONNECT=zk1.example.com:2181,zk1.example.com:2181
+```
+
+
 ### UI_ENV
 
 Used for the web interface. Defaults to `default` if not set.
