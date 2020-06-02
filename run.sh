@@ -46,6 +46,8 @@ if [ "${BROKER_CAPACITY:-}" != "" ]; then
 	}
 	get_broker_json > /cc/config/capacity.json
 	cat /cc/config/capacity.json
+	sed -i'' "s|^capacity.config.file=.*|capacity.config.file=config/capacity.json|g" /cc/config/cruisecontrol.properties
+	grep -E '^capacity.config.file=' /cc/config/cruisecontrol.properties
 fi
 
 
