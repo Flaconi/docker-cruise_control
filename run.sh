@@ -27,7 +27,7 @@ if [ "${BROKER_CAPACITY:-}" != "" ]; then
 			bnwout="$( echo "${line}" | awk -F':' '{print $5}' )"
 
 			echo "    {"
-			echo "      \"brokderId\": \"${bid}\","
+			echo "      \"brokerId\": \"${bid}\","
 			echo "      \"capacity\": {"
 			echo "        \"DISK\":   \"${bdisk}\","
 			echo "        \"CPU\":    \"${bcpu}\","
