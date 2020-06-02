@@ -9,7 +9,7 @@ set -u
 ###
 if [ "${BROKER_CAPACITY:-}" != "" ]; then
 	get_broker_json() {
-		BROKER_NUM="$( echo "${BROKER_CAPACITY}" | grep -o ',' | grep -c ',' )"
+		BROKER_NUM="$( echo "${BROKER_CAPACITY}" | grep -o ',' | grep -c ','  || true )"
 		BROKER_NUM=$(( BROKER_NUM + 1 ))
 
 		BROKER_CAPACITY="${BROKER_CAPACITY// /}"
