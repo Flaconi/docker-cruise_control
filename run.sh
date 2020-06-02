@@ -63,12 +63,15 @@ fi
 
 
 ###
-### create /cc/cruisecontrol-ui/config.csv
+### create /cc/cruisecontrol-ui/static/config.csv
 ###
-if [ "${UI_ENV:-}" == "" ]; then
-	UI_ENV="default"
+if [ "${UI_KEY:-}" == "" ]; then
+	UI_KEY="environment"
 fi
-echo "${UI_ENV},${UI_ENV},/kafkacruisecontrol/" > /cc/cruise-control-ui/static/config.csv
+if [ "${UI_VAL:-}" == "" ]; then
+	UI_VAL="default"
+fi
+echo "${UI_KEY},${UI_VAL},/kafkacruisecontrol/" > /cc/cruise-control-ui/static/config.csv
 
 
 ###

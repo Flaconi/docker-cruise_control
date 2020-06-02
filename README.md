@@ -105,13 +105,15 @@ ZOOKEEPER_CONNECT=zk1.example.com:2181,zk1.example.com:2181
 ```
 
 
-### UI_ENV
+### UI_KEY and UI_VAL
 
-Used for the web interface. Defaults to `default` if not set.
+Used for the web interface for cluster selection.
+Defaults to `UI_KEY=environment` and `UI_VAL=default` if not set.
 Will create `/cc/cruise-control-ui/static/config.csv`
 ```bash
 # Changes env name to dev
-UI_ENV=dev
+UI_KEY=env
+UI_VAL=dev
 ```
 
 
