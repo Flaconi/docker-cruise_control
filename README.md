@@ -69,6 +69,11 @@ make rebuild VERSION=2.0.105
 
 You can either use environment variables or mount the configuration files yourself.
 
+### PORT
+
+At what port Cruise Control web ui should listen internally. Defaults to `9090` if not set.
+
+
 ### BROKER_CAPACITY
 If set, will override values in `/cc/config/capacity.json`
 
