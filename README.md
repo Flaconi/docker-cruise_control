@@ -1,6 +1,24 @@
 # Docker Cruise Control
 
+[![Build Status](https://travis-ci.com/Flaconi/docker-cruise_control.svg?branch=master)](https://travis-ci.com/Flaconi/docker-cruise_control)
+
+
 > Docker image for [Cruise Control](https://github.com/linkedin/cruise-control)
+
+
+```bash
+docker pull flaconi/cruise_control
+```
+
+
+## Available images tags
+
+| Docker tag | Cruise Control version   |
+|------------|--------------------------|
+| `latest`   | Latest available release |
+| `2.4.2`    | Cruise control v2.4.2    |
+| `2.0.105`  | Cruise control v2.0.105  |
+
 
 
 ## Build and test
@@ -10,12 +28,12 @@ make build
 make test
 
 # Build and test specific version
-make build VERSION=2.0.104
-make test VERSION=2.0.104
+make build VERSION=2.0.105
+make test VERSION=2.0.105
 
 # Rebuild (--no-cache)
 make rebuild
-make rebuild VERSION=2.0.104
+make rebuild VERSION=2.0.105
 ```
 
 
