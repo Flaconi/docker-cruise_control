@@ -111,19 +111,19 @@ FROM openjdk:8-jdk-alpine as production
 RUN set -eux && apk add --no-cache bash
 
 ###
-### Setup config dirs
-###
-RUN set -eux \
-	&& mkdir /cc \
-	&& mkdir -p /etc/cruise-control/ \
-	&& mkdir -p /etc/cruise-control-ui/
-
-###
 ### Copy files
 ###
 COPY --from=builder /cc /cc
 COPY --from=builder /VERSION /VERSION
 COPY run.sh /run.sh
+
+###
+### Adjust paths
+###
+RUN set -eux \
+	&&	sed -i'' \
+		's|^webserver.ui.diskpath=|webserver.ui.diskpath=/cc/cruise-control-ui/|g' \
+		/cc/config/cruisecontrol.properties
 
 ###
 ### Startup
