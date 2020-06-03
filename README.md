@@ -63,11 +63,12 @@ make rebuild VERSION=2.0.105
 | `/cc/config/capacity.json` | Holds capacity info and can be mounted or created with env vars. |
 | `/cc/config/cruisecontrol.properties` | Full configuration. Currently only bootstrap servers can be adjusted with env vars. If you need more granular configuration, mount this file yourself. |
 | `/cc/cruise-control-ui/static/config.csv` | Environment display version for the web ui. Can only be adjusted via env vars. |
+| `/cc/clusterConfigs.json` | Specifies the desired ISR |
 
 
 ## Environment variables
 
-You can either use environment variables or mount the configuration files yourself.
+You can either use environment variables or mount the configuration files yourself. Do not mix changes of mounted config files and env variables as this might collide with each other.
 
 ### PORT
 
@@ -102,6 +103,16 @@ If set, will adjust `zookeeper.connect` value in `/cc/config/cruisecontrol.prope
 ```bash
 # Adds two zookeper servers
 ZOOKEEPER_CONNECT=zk1.example.com:2181,zk1.example.com:2181
+```
+
+
+### MIN_ISR
+Set the desired Min Insync Replicas value in `/cc/clusterConfigs.json`
+
+* Fromat: `<uint>`
+
+```
+MIN_ISR=2
 ```
 
 

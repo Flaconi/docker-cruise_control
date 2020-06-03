@@ -65,6 +65,19 @@ fi
 
 
 ###
+### overwrite /cc/config/clusterConfigs.json
+###
+if  [ "${MIN_ISR:-}" != "" ]; then
+	{
+		echo "{";
+		echo "  \"min.insync.replicas\": ${MIN_ISR},";
+		echo "  \"an.example.cluster.config\": true";
+		echo "}";
+	} > /cc/config/clusterConfigs.json
+fi
+
+
+###
 ### create /cc/cruisecontrol-ui/static/config.csv
 ###
 if [ "${UI_KEY:-}" == "" ]; then
