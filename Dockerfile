@@ -85,6 +85,9 @@ RUN set -eux \
 	&& cp -a /tmp/cruise-control/config /cc/ \
 	&& cp -a /tmp/cruise-control/kafka-cruise-control-start.sh /cc/ \
 	&& cp -a /tmp/cruise-control-ui/dist /cc/cruise-control-ui \
+	&& sed -i'' \
+		's|^webserver.ui.diskpath=.*|webserver.ui.diskpath=/cc/cruise-control-ui/|g' \
+		/cc/config/cruisecontrol.properties \
 	&& find /cc/ -name '*.csv' -print0 | xargs -0 -n1 rm -f \
 	&& find /cc/ -name '*.txt' -print0 | xargs -0 -n1 rm -f
 
@@ -116,14 +119,6 @@ RUN set -eux && apk add --no-cache bash
 COPY --from=builder /cc /cc
 COPY --from=builder /VERSION /VERSION
 COPY run.sh /run.sh
-
-###
-### Adjust paths
-###
-RUN set -eux \
-	&&	sed -i'' \
-		's|^webserver.ui.diskpath=.*|webserver.ui.diskpath=/cc/cruise-control-ui/|g' \
-		/cc/config/cruisecontrol.properties
 
 ###
 ### Startup
