@@ -17,6 +17,7 @@
 | `latest-latest`   | Latest available release |
 | `2.4.3-latest`    | Cruise control v2.4.3    |
 | `2.4.2-latest`    | Cruise control v2.4.2    |
+| `2.0.106-latest`  | Cruise control v2.0.106  |
 | `2.0.105-latest`  | Cruise control v2.0.105  |
 
 ### Git tagged releases
@@ -26,6 +27,7 @@
 | `<gtag>` | `latest-<gtag>`   | Latest available release |
 | `<gtag>` | `2.4.3-<gtag>`    | Cruise control v2.4.3    |
 | `<gtag>` | `2.4.2-<gtag>`    | Cruise control v2.4.2    |
+| `<gtag>` | `2.0.106-<gtag>`  | Cruise control v2.0.106  |
 | `<gtag>` | `2.0.105-<gtag>`  | Cruise control v2.0.105  |
 
 ```bash
