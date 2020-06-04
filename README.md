@@ -109,6 +109,16 @@ If set, will adjust `zookeeper.connect` value in `/cc/config/cruisecontrol.prope
 ZOOKEEPER_CONNECT=zk1.example.com:2181,zk1.example.com:2181
 ```
 
+### TWO_STEP_VERIFICATION
+If set to `1`, sets `two.step.verification.enabled` to `true` in `/cc/config/cruisecontrol.properties`
+
+* Info: https://github.com/linkedin/cruise-control/wiki/2-step-verification-for-POST-requests
+* Format: `TWO_STEP_VERIFICATION=1`
+
+```bash
+# Enable two-step verification
+TWO_STEP_VERIFICATION=1
+```
 
 ### MIN_ISR
 Set the desired Min Insync Replicas value in `/cc/clusterConfigs.json`
