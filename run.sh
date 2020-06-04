@@ -62,6 +62,10 @@ if [ "${ZOOKEEPER_CONNECT:-}" != "" ]; then
 	sed -i'' "s/^zookeeper.connect=.*/zookeeper.connect=${ZOOKEEPER_CONNECT}/g" /cc/config/cruisecontrol.properties
 	grep -E '^zookeeper\.connect=' /cc/config/cruisecontrol.properties
 fi
+if [ "${TWO_STEP_VERIFICATION:-}" = "1" ]; then
+	sed -i'' "s/^two.step.verification.enabled=.*/two.step.verification.enabled=true/g" /cc/config/cruisecontrol.properties
+	grep -E '^two.step\.verification\.enabled=' /cc/config/cruisecontrol.properties
+fi
 
 
 ###
