@@ -24,8 +24,10 @@ services:
 env:
   matrix:
     - VERSION=latest
+    - VERSION=2.4.4
     - VERSION=2.4.3
     - VERSION=2.4.2
+    - VERSION=2.0.108
     - VERSION=2.0.106
     - VERSION=2.0.105
 
